@@ -9,3 +9,10 @@ Create a simple web application to display a summary of recent commits to GIT, a
 4. Provide login protection to your application.
 
 5. Using a unit testing library of choice, verify that rows containing commit hashes ending in a number are colored light blue.
+
+### TO RUN THE APPLICATION
+
+npm install
+node source/server/app.js
+
+and then go to http://localhost:3000/commits/recent to view the output
