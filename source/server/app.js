@@ -20,7 +20,7 @@ app.get('/commits/recent', function (req, res) {
     res.write('<html><body>');
     for (var i=0;i<commits.length;i++){
       var lastCharIsNum = !isNaN(commits[i].sha.charAt(commits[i].sha.length-1));
-      if (lastCharIsNum) res.write('<div style="background: #ADD8E6; width: auto">')
+      if (lastCharIsNum) res.write('<div style="background: #ADD8E6; width: auto; word-wrap: break-word">')
       res.write('<h1>Author</h1></>'+JSON.stringify(commits[i].author)+'</>');
       res.write('<h2>Commit</h2></>'+JSON.stringify(commits[i]));
       if (lastCharIsNum) res.write('</div>');
