@@ -15,7 +15,7 @@ exports.getCommits = function(cb,repo,owner,commitsNum,sortBy){
     var commits = [];
 
     for (var i=0;i<bodyJSON.length;i++){
-      if (i==commitsNum)break;      
+      if (i==commitsNum)break;
       commits.push(bodyJSON[i]);
     }
 

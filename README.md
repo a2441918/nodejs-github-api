@@ -14,6 +14,7 @@ Create a simple web application to display a summary of recent commits to GIT, a
 
 npm install
 
-node source/server/app.js
+npm start
 
-and then go to http://localhost:3000/commits/recent to view the output
+and then go to http://localhost:3000/ to view the output
+```
