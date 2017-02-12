@@ -12,7 +12,6 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var request = require('request');
 var githubService = require('./githubService');
-var jsonMarkup = require('json-markup')
 
 
 mongoose.connect('mongodb://google:google123@ds147069.mlab.com:47069/node-github');
@@ -91,22 +90,21 @@ app.get('/commits/recent', function (req, res) {
       var lastCharIsNum = !isNaN(commits[i].sha.charAt(commits[i].sha.length-1));
       if (lastCharIsNum) res.write('<div style="background: #ADD8E6; width: auto; word-wrap: break-word">')
       var data = commits[i];
-      var formattedText = JSON.stringify(data,undefined,2);
-      console.log(formattedText);
+      var formattedText = JSON.stringify(data);
       var n = i+1;
       res.write('<h2>Commit '+n+'</h2>');
       res.write('<pre id="text'+n+'"></pre>');
-      res.write('<script>document.getElementById("text'+n+'").innerHTML=JSON.stringify('+formattedText+');</script>');
+      res.write('<script>document.getElementById("text'+n+'").innerHTML=JSON.stringify('+formattedText+',undefined,2);</script>');
       if (lastCharIsNum) res.write('</div>');
     }
     res.write('</body></html>');
     res.end();
-  },'nodejs','node',25,'latest');
+  },'node','nodejs',25,'latest');
 });
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), function(){
-	console.log('Server started on port '+app.get('port'));
+  console.log('Server started on port '+app.get('port'));
 });
