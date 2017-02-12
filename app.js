@@ -99,7 +99,7 @@ app.get('/commits/recent', function (req, res) {
     }
     res.write('</body></html>');
     res.end();
-  },'node','nodejs',25,'latest');
+  },'nodejs','node',25,'latest');
 });
 
 // Set Port
